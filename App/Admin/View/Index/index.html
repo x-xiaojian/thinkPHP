@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>{:C('WEB_SITE_TITLE')}|Gms管理平台</title>
+<link rel="stylesheet" type="text/css" href="__STATIC__/easyui/themes/gms/easyui.css">
+<link rel="stylesheet" type="text/css" href="__CSS__/main.css">
+<link rel="stylesheet" type="text/css" href="__STATIC__/iconfont/iconfont.css">
+<link rel="stylesheet" href="__STATIC__/kindeditor/themes/default/default.css" />
+<link rel="stylesheet" href="__STATIC__/kindeditor/themes/simple/simple.css" />
+<script type="text/javascript" src="__STATIC__/jquery.min.js"></script>
+<script type="text/javascript" src="__STATIC__/easyui/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="__STATIC__/easyui/easyui-lang-zh_CN.js"></script>
+<script charset="utf-8" src="__STATIC__/kindeditor/kindeditor-min.js"></script>
+<script charset="utf-8" src="__STATIC__/kindeditor/lang/zh_CN.js"></script>
+<script type="text/javascript" src="__JS__/main.js"></script>
+<script>
+/*
+var ke_pasteType=2;
+var ke_fileManagerJson="{:U('Share/Editor/filemanager')}";
+var ke_uploadJson="{:U('Share/Editor/upload')}";
+var ke_Uid='{:session("Uid");}';
+*/
+var Root='__ROOT__';
+</script>
+</head>
+<body id="layout_main" class="easyui-layout">
+<div id="layout_north" data-options="region:'north',border:false">
+  <div class="top_left"><a href="{:U('index')}" class="logo"><img src="__IMG__/logo.png"></a></div>
+  <ul class="top_nav">
+      <volist name="MainMenu" id="menu">
+    	<li><a onClick="MainMenuClick({$key});" id='t_nav_{$key}'><span class="<empty name="$menu['iconCls']">{$menu['iconCls']}<else />iconfont icon-form</empty>"></span><h2>{$menu.text}</h2></a></li>
+      </volist>
+  </ul>
+  <div class="top_right">
+    <ul>
+      <li><span class="iconfont icon-help" style="font-size:12px;"></span><a href="#">帮助</a></li>
+      <!--li><span class="iconfont icon-edit" style="font-size:12px;"></span><a href="{:U('User/updatePassword')}" class="topbar_menu">修改密码</a></li>
+      <li><span class="iconfont icon-set" style="font-size:12px;"></span><a href="{:U('User/updateNickname')}" class="topbar_menu">修改昵称</a></li-->
+      <li><span class="iconfont icon-more" style="font-size:12px;"></span><a href="{:U('Admin/Public/logout')}" class="topbar_menu">退出</a></li>
+    </ul>
+    <div class="top_user"> <span><font class="iconfont icon-account" style="color:#fff; padding-right:5px;"></font>admin</span> <i>消息</i> <b>5</b> </div>
+  </div>
+</div>
+<div id="layout_west" data-options="region:'west',split:true,title:'菜单'">
+  <ul id="LeftMenu" class="easyui-tree" data-options="url:'{:U('menu')}',id:'id',text:'name',animate:true,lines:true,onClick:function(node){LeftMenuClick(node);}">
+  </ul>
+</div>
+<div id="layout_center" data-options="region:'center',split:true">
+  <div id="MainTabs" class="easyui-tabs" data-options="fit:true,border:false">
+    <div title="控制台" data-options="closable:false,id:-1,iconCls:'iconfont icon-all',bodyCls:'tabs_box'" style="padding:5px;"></div>
+  </div>
+</div>
+</body>
+</html>

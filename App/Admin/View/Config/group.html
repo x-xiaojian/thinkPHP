@@ -1,0 +1,41 @@
+<div id="Config_Bar" class="Bar_tools">
+  <volist name="type" id="group"> <a class='easyui-linkbutton' href='JavaScript:void(0);' data-options="iconCls:'iconfont icon-edit',plain:true" onclick="UpdateTabs('Config','{:U('?id='.$key)}','','iconfont icon-add');"><span>{$group}配置</span></a> </volist>
+</div>
+<form id="Config_Submit_From" class="update_from" action="{:U('group')}&id={$id}" data-options="tools:'#Config_Bar'">
+  <table>
+  <volist name="list" id="config">
+    <tr>
+      <th>{$config.title} : <span>{$config.remark}</span></th>
+    </tr>
+    <tr>
+      <td><switch name="config.type">
+          <case value="0">
+            <input type="text" name="config[{$config.name}]" value="{$config.value}" class="easyui-numberbox" style="height:30px;">
+          </case>
+          <case value="1">
+            <input type="text" name="config[{$config.name}]" value="{$config.value}" class="easyui-textbox">
+          </case>
+          <case value="2">
+          <input name="config[{$config.name}]" value="{$config.value}" type="text" class="easyui-textbox" data-options="required:false,multiline:true" style="width:300px; height:60px;">
+          </case>
+          <case value="3">
+          <input name="config[{$config.name}]" value="{$config.value}" type="text" class="easyui-textbox" data-options="required:false,multiline:true" style="width:300px; height:60px;">
+          </case>
+          <case value="4">
+            <select name="config[{$config.name}]" class="easyui-combobox" data-options="value:'1',multiple:false,required:false,editable:false">
+              <volist name=":model_field_attr($config['extra'])" id="vo">
+              <option value="{$key}" <eq name="config.value" value="$key">selected</eq>>{$vo}</option>
+              </volist>
+            </select>
+          </case>
+          <case value="5">
+            <input type="text" name="config[{$config.name}]" value="{$config.value}" class="easyui-kindeditor" config_date="1" style="width:600px; height:300px;">
+          </case>
+        </switch></td>
+    </tr>
+    </volist>
+    <tr>
+      <th style="text-align:center;"><a class="easyui-linkbutton" href="JavaScript:void(0);" onclick="From_Submit('Config')" data-options="iconCls:'iconfont icon-edit'"><span style="font-size:14px; font-weight:600;">保存</span></a></th>
+    </tr>
+  </table>
+</form>

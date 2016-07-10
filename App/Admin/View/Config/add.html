@@ -1,0 +1,54 @@
+<div id="Config_Bar" class="Bar_tools">{$operate}</div>
+<form id="Config_Submit_From" class="update_from easyui-tabs" action="{:U('add')}" data-options="fit:true,border:false,tools:'#Config_Bar',toolPosition:'left'">
+	<div title="基础" data-options="closable:false">
+	<table>
+		<tr>
+			<th>配置名称 : <span></span></th>
+		</tr>
+		<tr>
+			<td><input name="name" value="" type="text" class="easyui-textbox" data-options="required:false"></td>
+		</tr><tr>
+			<th>配置类型 : <span></span></th>
+		</tr>
+		<tr>
+			<td><input name="type" value="0" type="text" class="easyui-textbox" data-options="required:false"></td>
+		</tr><tr>
+			<th>配置标题 : <span></span></th>
+		</tr>
+		<tr>
+			<td><input name="title" value="" type="text" class="easyui-textbox" data-options="required:false"></td>
+		</tr><tr>
+			<th>配置分组 : <span></span></th>
+		</tr>
+		<tr>
+			<td><input name="group" value="0" type="text" class="easyui-textbox" data-options="required:false"></td>
+		</tr><tr>
+			<th>配置参数 : <span></span></th>
+		</tr>
+		<tr>
+			<td><input name="extra" value="" type="text" class="easyui-textbox" data-options="required:false,multiline:true" style="width:300px; height:60px;"></td>
+		</tr><tr>
+			<th>说明 : <span></span></th>
+		</tr>
+		<tr>
+			<td><input name="remark" value="" type="text" class="easyui-textbox" data-options="required:false,multiline:true" style="width:300px; height:60px;"></td>
+		</tr><tr>
+			<th>状态 : <span></span></th>
+		</tr>
+		<tr>
+			<td><select name="status" class="easyui-combobox" data-options="value:'1',multiple:false,required:false,editable:false"><option value="1" >启用</option><option value="0" >禁用</option></select></td>
+		</tr><tr>
+			<th>配置值 : <span></span></th>
+		</tr>
+		<tr>
+			<td><input name="value" value="" type="text" class="easyui-textbox" data-options="required:false,multiline:true" style="width:300px; height:60px;"></td>
+		</tr><tr>
+			<th>排序 : <span></span></th>
+		</tr>
+		<tr>
+			<td><input name="sort" value="0" type="text" class="easyui-numberbox" style="height:30px;" data-options="min:'0',max:'999',required:false"></td>
+		</tr>	<tr>
+		<th style="text-align:center;"><a class="easyui-linkbutton" href="JavaScript:void(0);" onclick="From_Submit('Config')" data-options="iconCls:'iconfont icon-add'"><span style="font-size:14px; font-weight:600;">新增</span></a></th>
+	</tr>
+    </table>
+    </div></form>
